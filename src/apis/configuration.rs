@@ -44,7 +44,7 @@ impl Default for Configuration {
         Configuration {
             base_path: "http://localhost/nifi-api".to_owned(),
             user_agent: Some("OpenAPI-Generator/1.16.0/rust".to_owned()),
-            client: reqwest::Client::new(),
+            client: reqwest::Client::builder().danger_accept_invalid_certs(true).build(),
             basic_auth: None,
             oauth_access_token: None,
             bearer_access_token: None,
