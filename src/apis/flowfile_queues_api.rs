@@ -118,7 +118,7 @@ pub async fn create_drop_request(configuration: &configuration::Configuration, i
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flowfile-queues/{id}/drop-requests", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -145,7 +145,7 @@ pub async fn create_flow_file_listing(configuration: &configuration::Configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flowfile-queues/{id}/listing-requests", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -172,7 +172,7 @@ pub async fn delete_listing_request(configuration: &configuration::Configuration
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flowfile-queues/{id}/listing-requests/{listing_request_id}", local_var_configuration.base_path, id=crate::apis::urlencode(id), listing_request_id=crate::apis::urlencode(listing_request_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -199,7 +199,7 @@ pub async fn download_flow_file_content(configuration: &configuration::Configura
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flowfile-queues/{id}/flowfiles/{flowfile_uuid}/content", local_var_configuration.base_path, id=crate::apis::urlencode(id), flowfile_uuid=crate::apis::urlencode(flowfile_uuid));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = client_id {
         local_var_req_builder = local_var_req_builder.query(&[("clientId", &local_var_str.to_string())]);
@@ -232,7 +232,7 @@ pub async fn get_drop_request(configuration: &configuration::Configuration, id: 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flowfile-queues/{id}/drop-requests/{drop_request_id}", local_var_configuration.base_path, id=crate::apis::urlencode(id), drop_request_id=crate::apis::urlencode(drop_request_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -259,7 +259,7 @@ pub async fn get_flow_file(configuration: &configuration::Configuration, id: &st
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flowfile-queues/{id}/flowfiles/{flowfile_uuid}", local_var_configuration.base_path, id=crate::apis::urlencode(id), flowfile_uuid=crate::apis::urlencode(flowfile_uuid));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = cluster_node_id {
         local_var_req_builder = local_var_req_builder.query(&[("clusterNodeId", &local_var_str.to_string())]);
@@ -289,7 +289,7 @@ pub async fn get_listing_request(configuration: &configuration::Configuration, i
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flowfile-queues/{id}/listing-requests/{listing_request_id}", local_var_configuration.base_path, id=crate::apis::urlencode(id), listing_request_id=crate::apis::urlencode(listing_request_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -316,7 +316,7 @@ pub async fn remove_drop_request(configuration: &configuration::Configuration, i
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flowfile-queues/{id}/drop-requests/{drop_request_id}", local_var_configuration.base_path, id=crate::apis::urlencode(id), drop_request_id=crate::apis::urlencode(drop_request_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

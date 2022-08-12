@@ -106,7 +106,7 @@ pub async fn create_access_token(configuration: &configuration::Configuration, u
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/token", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -127,7 +127,7 @@ pub async fn create_access_token(configuration: &configuration::Configuration, u
     let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+        Ok(local_var_content.to_string())
     } else {
         let local_var_entity: Option<CreateAccessTokenError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
@@ -142,7 +142,7 @@ pub async fn create_access_token_from_ticket(configuration: &configuration::Conf
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/kerberos", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -170,7 +170,7 @@ pub async fn get_access_status(configuration: &configuration::Configuration, ) -
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -197,7 +197,7 @@ pub async fn get_login_config(configuration: &configuration::Configuration, ) ->
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/config", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -225,7 +225,7 @@ pub async fn knox_callback(configuration: &configuration::Configuration, ) -> Re
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/knox/callback", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -253,7 +253,7 @@ pub async fn knox_logout(configuration: &configuration::Configuration, ) -> Resu
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/knox/logout", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -281,7 +281,7 @@ pub async fn knox_request(configuration: &configuration::Configuration, ) -> Res
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/knox/request", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -309,7 +309,7 @@ pub async fn log_out(configuration: &configuration::Configuration, ) -> Result<(
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/logout", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -337,7 +337,7 @@ pub async fn log_out_complete(configuration: &configuration::Configuration, ) ->
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/logout/complete", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

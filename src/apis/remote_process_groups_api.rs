@@ -142,7 +142,7 @@ pub async fn get_remote_process_group(configuration: &configuration::Configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/remote-process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -169,7 +169,7 @@ pub async fn get_state(configuration: &configuration::Configuration, id: &str) -
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/remote-process-groups/{id}/state", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -196,7 +196,7 @@ pub async fn remove_remote_process_group(configuration: &configuration::Configur
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/remote-process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = version {
         local_var_req_builder = local_var_req_builder.query(&[("version", &local_var_str.to_string())]);
@@ -232,7 +232,7 @@ pub async fn update_remote_process_group(configuration: &configuration::Configur
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/remote-process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -261,7 +261,7 @@ pub async fn update_remote_process_group_input_port(configuration: &configuratio
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/remote-process-groups/{id}/input-ports/{port_id}", local_var_configuration.base_path, id=crate::apis::urlencode(id), port_id=crate::apis::urlencode(port_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -290,7 +290,7 @@ pub async fn update_remote_process_group_input_port_run_status(configuration: &c
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/remote-process-groups/{id}/input-ports/{port_id}/run-status", local_var_configuration.base_path, id=crate::apis::urlencode(id), port_id=crate::apis::urlencode(port_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -319,7 +319,7 @@ pub async fn update_remote_process_group_output_port(configuration: &configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/remote-process-groups/{id}/output-ports/{port_id}", local_var_configuration.base_path, id=crate::apis::urlencode(id), port_id=crate::apis::urlencode(port_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -348,7 +348,7 @@ pub async fn update_remote_process_group_output_port_run_status(configuration: &
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/remote-process-groups/{id}/output-ports/{port_id}/run-status", local_var_configuration.base_path, id=crate::apis::urlencode(id), port_id=crate::apis::urlencode(port_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -376,7 +376,7 @@ pub async fn update_remote_process_group_run_status(configuration: &configuratio
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/remote-process-groups/{id}/run-status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -404,7 +404,7 @@ pub async fn update_remote_process_group_run_statuses(configuration: &configurat
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/remote-process-groups/process-group/{id}/run-status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

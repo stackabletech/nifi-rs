@@ -70,7 +70,7 @@ pub async fn get_input_content(configuration: &configuration::Configuration, id:
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/provenance-events/{id}/content/input", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = cluster_node_id {
         local_var_req_builder = local_var_req_builder.query(&[("clusterNodeId", &local_var_str.to_string())]);
@@ -100,7 +100,7 @@ pub async fn get_output_content(configuration: &configuration::Configuration, id
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/provenance-events/{id}/content/output", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = cluster_node_id {
         local_var_req_builder = local_var_req_builder.query(&[("clusterNodeId", &local_var_str.to_string())]);
@@ -130,7 +130,7 @@ pub async fn get_provenance_event(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/provenance-events/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = cluster_node_id {
         local_var_req_builder = local_var_req_builder.query(&[("clusterNodeId", &local_var_str.to_string())]);
@@ -160,7 +160,7 @@ pub async fn submit_replay(configuration: &configuration::Configuration, body: c
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/provenance-events/replays", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

@@ -191,7 +191,7 @@ pub async fn create_version_control_request(configuration: &configuration::Confi
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/active-requests", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -220,7 +220,7 @@ pub async fn delete_revert_request(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/revert-requests/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = disconnected_node_acknowledged {
         local_var_req_builder = local_var_req_builder.query(&[("disconnectedNodeAcknowledged", &local_var_str.to_string())]);
@@ -251,7 +251,7 @@ pub async fn delete_update_request(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/update-requests/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = disconnected_node_acknowledged {
         local_var_req_builder = local_var_req_builder.query(&[("disconnectedNodeAcknowledged", &local_var_str.to_string())]);
@@ -282,7 +282,7 @@ pub async fn delete_version_control_request(configuration: &configuration::Confi
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/active-requests/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = disconnected_node_acknowledged {
         local_var_req_builder = local_var_req_builder.query(&[("disconnectedNodeAcknowledged", &local_var_str.to_string())]);
@@ -312,7 +312,7 @@ pub async fn export_flow_version(configuration: &configuration::Configuration, i
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/process-groups/{id}/download", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -340,7 +340,7 @@ pub async fn get_revert_request(configuration: &configuration::Configuration, id
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/revert-requests/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -368,7 +368,7 @@ pub async fn get_update_request(configuration: &configuration::Configuration, id
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/update-requests/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -396,7 +396,7 @@ pub async fn get_version_information(configuration: &configuration::Configuratio
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -424,7 +424,7 @@ pub async fn initiate_revert_flow_version(configuration: &configuration::Configu
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/revert-requests/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -453,7 +453,7 @@ pub async fn initiate_version_control_update(configuration: &configuration::Conf
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/update-requests/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -482,7 +482,7 @@ pub async fn save_to_flow_registry(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -511,7 +511,7 @@ pub async fn stop_version_control(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = version {
         local_var_req_builder = local_var_req_builder.query(&[("version", &local_var_str.to_string())]);
@@ -548,7 +548,7 @@ pub async fn update_flow_version(configuration: &configuration::Configuration, i
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -577,7 +577,7 @@ pub async fn update_version_control_request(configuration: &configuration::Confi
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/versions/active-requests/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

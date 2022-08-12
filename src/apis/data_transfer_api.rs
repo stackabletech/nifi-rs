@@ -112,7 +112,7 @@ pub async fn commit_input_port_transaction(configuration: &configuration::Config
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/data-transfer/input-ports/{portId}/transactions/{transactionId}", local_var_configuration.base_path, portId=crate::apis::urlencode(port_id), transactionId=crate::apis::urlencode(transaction_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("responseCode", &response_code.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -140,7 +140,7 @@ pub async fn commit_output_port_transaction(configuration: &configuration::Confi
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/data-transfer/output-ports/{portId}/transactions/{transactionId}", local_var_configuration.base_path, portId=crate::apis::urlencode(port_id), transactionId=crate::apis::urlencode(transaction_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("responseCode", &response_code.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("checksum", &checksum.to_string())]);
@@ -169,7 +169,7 @@ pub async fn create_port_transaction(configuration: &configuration::Configuratio
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/data-transfer/{portType}/{portId}/transactions", local_var_configuration.base_path, portType=crate::apis::urlencode(port_type), portId=crate::apis::urlencode(port_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -196,7 +196,7 @@ pub async fn extend_input_port_transaction_ttl(configuration: &configuration::Co
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/data-transfer/input-ports/{portId}/transactions/{transactionId}", local_var_configuration.base_path, portId=crate::apis::urlencode(port_id), transactionId=crate::apis::urlencode(transaction_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -223,7 +223,7 @@ pub async fn extend_output_port_transaction_ttl(configuration: &configuration::C
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/data-transfer/output-ports/{portId}/transactions/{transactionId}", local_var_configuration.base_path, portId=crate::apis::urlencode(port_id), transactionId=crate::apis::urlencode(transaction_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -250,7 +250,7 @@ pub async fn receive_flow_files(configuration: &configuration::Configuration, po
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/data-transfer/input-ports/{portId}/transactions/{transactionId}/flow-files", local_var_configuration.base_path, portId=crate::apis::urlencode(port_id), transactionId=crate::apis::urlencode(transaction_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -277,7 +277,7 @@ pub async fn transfer_flow_files(configuration: &configuration::Configuration, p
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/data-transfer/output-ports/{portId}/transactions/{transactionId}/flow-files", local_var_configuration.base_path, portId=crate::apis::urlencode(port_id), transactionId=crate::apis::urlencode(transaction_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

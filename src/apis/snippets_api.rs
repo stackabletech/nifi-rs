@@ -58,7 +58,7 @@ pub async fn create_snippet(configuration: &configuration::Configuration, body: 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/snippets", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -86,7 +86,7 @@ pub async fn delete_snippet(configuration: &configuration::Configuration, id: &s
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/snippets/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = disconnected_node_acknowledged {
         local_var_req_builder = local_var_req_builder.query(&[("disconnectedNodeAcknowledged", &local_var_str.to_string())]);
@@ -116,7 +116,7 @@ pub async fn update_snippet(configuration: &configuration::Configuration, id: &s
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/snippets/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

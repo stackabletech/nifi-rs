@@ -62,7 +62,7 @@ pub async fn oidc_callback(configuration: &configuration::Configuration, ) -> Re
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/oidc/callback", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -90,7 +90,7 @@ pub async fn oidc_exchange(configuration: &configuration::Configuration, ) -> Re
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/oidc/exchange", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -118,7 +118,7 @@ pub async fn oidc_logout(configuration: &configuration::Configuration, ) -> Resu
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/oidc/logout", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -146,7 +146,7 @@ pub async fn oidc_logout_callback(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/oidc/logoutCallback", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -174,7 +174,7 @@ pub async fn oidc_request(configuration: &configuration::Configuration, ) -> Res
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/access/oidc/request", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

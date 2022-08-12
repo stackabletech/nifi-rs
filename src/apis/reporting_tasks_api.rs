@@ -154,7 +154,7 @@ pub async fn analyze_configuration(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}/config/analysis", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -182,7 +182,7 @@ pub async fn clear_state(configuration: &configuration::Configuration, id: &str)
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}/state/clear-requests", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -210,7 +210,7 @@ pub async fn delete_validation_request(configuration: &configuration::Configurat
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}/config/verification-requests/{requestId}", local_var_configuration.base_path, id=crate::apis::urlencode(id), requestId=crate::apis::urlencode(request_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -237,7 +237,7 @@ pub async fn get_property_descriptor(configuration: &configuration::Configuratio
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}/descriptors", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("propertyName", &property_name.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -265,7 +265,7 @@ pub async fn get_reporting_task(configuration: &configuration::Configuration, id
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -292,7 +292,7 @@ pub async fn get_state(configuration: &configuration::Configuration, id: &str) -
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}/state", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -320,7 +320,7 @@ pub async fn get_verification_request(configuration: &configuration::Configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}/config/verification-requests/{requestId}", local_var_configuration.base_path, id=crate::apis::urlencode(id), requestId=crate::apis::urlencode(request_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -347,7 +347,7 @@ pub async fn remove_reporting_task(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = version {
         local_var_req_builder = local_var_req_builder.query(&[("version", &local_var_str.to_string())]);
@@ -384,7 +384,7 @@ pub async fn submit_config_verification_request(configuration: &configuration::C
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}/config/verification-requests", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -412,7 +412,7 @@ pub async fn update_reporting_task(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -440,7 +440,7 @@ pub async fn update_run_status(configuration: &configuration::Configuration, id:
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/reporting-tasks/{id}/run-status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

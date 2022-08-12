@@ -142,7 +142,7 @@ pub async fn create_parameter_context(configuration: &configuration::Configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/parameter-contexts", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -171,7 +171,7 @@ pub async fn delete_parameter_context(configuration: &configuration::Configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/parameter-contexts/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = version {
         local_var_req_builder = local_var_req_builder.query(&[("version", &local_var_str.to_string())]);
@@ -208,7 +208,7 @@ pub async fn delete_update_request(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/parameter-contexts/{contextId}/update-requests/{requestId}", local_var_configuration.base_path, contextId=crate::apis::urlencode(context_id), requestId=crate::apis::urlencode(request_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = disconnected_node_acknowledged {
         local_var_req_builder = local_var_req_builder.query(&[("disconnectedNodeAcknowledged", &local_var_str.to_string())]);
@@ -239,7 +239,7 @@ pub async fn delete_validation_request(configuration: &configuration::Configurat
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/parameter-contexts/{contextId}/validation-requests/{id}", local_var_configuration.base_path, contextId=crate::apis::urlencode(context_id), id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = disconnected_node_acknowledged {
         local_var_req_builder = local_var_req_builder.query(&[("disconnectedNodeAcknowledged", &local_var_str.to_string())]);
@@ -270,7 +270,7 @@ pub async fn get_parameter_context(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/parameter-contexts/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = include_inherited_parameters {
         local_var_req_builder = local_var_req_builder.query(&[("includeInheritedParameters", &local_var_str.to_string())]);
@@ -301,7 +301,7 @@ pub async fn get_parameter_context_update(configuration: &configuration::Configu
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/parameter-contexts/{contextId}/update-requests/{requestId}", local_var_configuration.base_path, contextId=crate::apis::urlencode(context_id), requestId=crate::apis::urlencode(request_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -329,7 +329,7 @@ pub async fn get_validation_request(configuration: &configuration::Configuration
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/parameter-contexts/{contextId}/validation-requests/{id}", local_var_configuration.base_path, contextId=crate::apis::urlencode(context_id), id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -357,7 +357,7 @@ pub async fn submit_parameter_context_update(configuration: &configuration::Conf
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/parameter-contexts/{contextId}/update-requests", local_var_configuration.base_path, contextId=crate::apis::urlencode(context_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -386,7 +386,7 @@ pub async fn submit_validation_request(configuration: &configuration::Configurat
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/parameter-contexts/{contextId}/validation-requests", local_var_configuration.base_path, contextId=crate::apis::urlencode(context_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -415,7 +415,7 @@ pub async fn update_parameter_context(configuration: &configuration::Configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/parameter-contexts/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

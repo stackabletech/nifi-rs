@@ -510,7 +510,7 @@ pub async fn copy_snippet(configuration: &configuration::Configuration, id: &str
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/snippet-instance", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -538,7 +538,7 @@ pub async fn create_connection(configuration: &configuration::Configuration, id:
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/connections", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -566,7 +566,7 @@ pub async fn create_controller_service(configuration: &configuration::Configurat
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/controller-services", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -594,7 +594,7 @@ pub async fn create_empty_all_connections_request(configuration: &configuration:
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/empty-all-connections-requests", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -621,7 +621,7 @@ pub async fn create_funnel(configuration: &configuration::Configuration, id: &st
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/funnels", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -649,7 +649,7 @@ pub async fn create_input_port(configuration: &configuration::Configuration, id:
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/input-ports", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -677,7 +677,7 @@ pub async fn create_label(configuration: &configuration::Configuration, id: &str
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/labels", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -705,7 +705,7 @@ pub async fn create_output_port(configuration: &configuration::Configuration, id
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/output-ports", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -733,7 +733,7 @@ pub async fn create_process_group(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/process-groups", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -761,7 +761,7 @@ pub async fn create_processor(configuration: &configuration::Configuration, id: 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/processors", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -789,7 +789,7 @@ pub async fn create_remote_process_group(configuration: &configuration::Configur
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/remote-process-groups", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -817,7 +817,7 @@ pub async fn create_template(configuration: &configuration::Configuration, id: &
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/templates", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -846,7 +846,7 @@ pub async fn delete_replace_process_group_request(configuration: &configuration:
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/replace-requests/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = disconnected_node_acknowledged {
         local_var_req_builder = local_var_req_builder.query(&[("disconnectedNodeAcknowledged", &local_var_str.to_string())]);
@@ -877,7 +877,7 @@ pub async fn delete_variable_registry_update_request(configuration: &configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{groupId}/variable-registry/update-requests/{updateId}", local_var_configuration.base_path, groupId=crate::apis::urlencode(group_id), updateId=crate::apis::urlencode(update_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = disconnected_node_acknowledged {
         local_var_req_builder = local_var_req_builder.query(&[("disconnectedNodeAcknowledged", &local_var_str.to_string())]);
@@ -907,7 +907,7 @@ pub async fn export_process_group(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/download", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -934,7 +934,7 @@ pub async fn get_connections(configuration: &configuration::Configuration, id: &
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/connections", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -961,7 +961,7 @@ pub async fn get_drop_all_flowfiles_request(configuration: &configuration::Confi
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/empty-all-connections-requests/{drop_request_id}", local_var_configuration.base_path, id=crate::apis::urlencode(id), drop_request_id=crate::apis::urlencode(drop_request_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -988,7 +988,7 @@ pub async fn get_funnels(configuration: &configuration::Configuration, id: &str)
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/funnels", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1015,7 +1015,7 @@ pub async fn get_input_ports(configuration: &configuration::Configuration, id: &
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/input-ports", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1042,7 +1042,7 @@ pub async fn get_labels(configuration: &configuration::Configuration, id: &str) 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/labels", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1069,7 +1069,7 @@ pub async fn get_local_modifications(configuration: &configuration::Configuratio
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/local-modifications", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1096,7 +1096,7 @@ pub async fn get_output_ports(configuration: &configuration::Configuration, id: 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/output-ports", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1123,7 +1123,7 @@ pub async fn get_process_group(configuration: &configuration::Configuration, id:
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1150,7 +1150,7 @@ pub async fn get_process_groups(configuration: &configuration::Configuration, id
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/process-groups", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1177,7 +1177,7 @@ pub async fn get_processors(configuration: &configuration::Configuration, id: &s
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/processors", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = include_descendant_groups {
         local_var_req_builder = local_var_req_builder.query(&[("includeDescendantGroups", &local_var_str.to_string())]);
@@ -1207,7 +1207,7 @@ pub async fn get_remote_process_groups(configuration: &configuration::Configurat
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/remote-process-groups", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1235,7 +1235,7 @@ pub async fn get_replace_process_group_request(configuration: &configuration::Co
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/replace-requests/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1263,7 +1263,7 @@ pub async fn get_variable_registry(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/variable-registry", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = include_ancestor_groups {
         local_var_req_builder = local_var_req_builder.query(&[("includeAncestorGroups", &local_var_str.to_string())]);
@@ -1294,7 +1294,7 @@ pub async fn get_variable_registry_update_request(configuration: &configuration:
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{groupId}/variable-registry/update-requests/{updateId}", local_var_configuration.base_path, groupId=crate::apis::urlencode(group_id), updateId=crate::apis::urlencode(update_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1321,7 +1321,7 @@ pub async fn import_process_group(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/process-groups/import", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1348,7 +1348,7 @@ pub async fn import_template(configuration: &configuration::Configuration, id: &
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/templates/import", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1376,7 +1376,7 @@ pub async fn initiate_replace_process_group(configuration: &configuration::Confi
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/replace-requests", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1404,7 +1404,7 @@ pub async fn instantiate_template(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/template-instance", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1432,7 +1432,7 @@ pub async fn remove_drop_request(configuration: &configuration::Configuration, i
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/empty-all-connections-requests/{drop_request_id}", local_var_configuration.base_path, id=crate::apis::urlencode(id), drop_request_id=crate::apis::urlencode(drop_request_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1459,7 +1459,7 @@ pub async fn remove_process_group(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = version {
         local_var_req_builder = local_var_req_builder.query(&[("version", &local_var_str.to_string())]);
@@ -1496,7 +1496,7 @@ pub async fn replace_process_group(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/flow-contents", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1525,7 +1525,7 @@ pub async fn submit_update_variable_registry_request(configuration: &configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/variable-registry/update-requests", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1553,7 +1553,7 @@ pub async fn update_process_group(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1582,7 +1582,7 @@ pub async fn update_variable_registry(configuration: &configuration::Configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/variable-registry", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1610,7 +1610,7 @@ pub async fn upload_process_group(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/process-groups/upload", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1637,7 +1637,7 @@ pub async fn upload_template(configuration: &configuration::Configuration, id: &
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/process-groups/{id}/templates/upload", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

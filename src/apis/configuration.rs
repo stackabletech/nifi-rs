@@ -10,6 +10,7 @@
 
 
 use reqwest;
+use reqwest::{IntoUrl, Method, RequestBuilder};
 
 
 #[derive(Debug, Clone)]
@@ -37,12 +38,19 @@ impl Configuration {
     pub fn new() -> Configuration {
         Configuration::default()
     }
+    pub fn request<U: IntoUrl>(&self, method: Method, url: U) -> RequestBuilder {
+        let mut request = self.client.request(method, url);
+        if let Some(token) = &self.bearer_access_token {
+            request = request.bearer_auth(token);
+        }
+        request
+    }
 }
 
 impl Default for Configuration {
     fn default() -> Self {
         Configuration {
-            base_path: "http://localhost/nifi-api".to_owned(),
+            base_path: "https://34.116.143.118:31269/nifi-api".to_owned(),
             user_agent: Some("OpenAPI-Generator/1.16.0/rust".to_owned()),
             client: reqwest::Client::builder().danger_accept_invalid_certs(true).build().expect("unable to create client"),
             basic_auth: None,

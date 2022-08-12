@@ -514,7 +514,7 @@ pub async fn activate_controller_services(configuration: &configuration::Configu
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/process-groups/{id}/controller-services", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -542,7 +542,7 @@ pub async fn generate_client_id(configuration: &configuration::Configuration, ) 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/client-id", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -569,7 +569,7 @@ pub async fn get_about_info(configuration: &configuration::Configuration, ) -> R
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/about", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -597,7 +597,7 @@ pub async fn get_action(configuration: &configuration::Configuration, id: &str) 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/history/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -624,7 +624,7 @@ pub async fn get_banners(configuration: &configuration::Configuration, ) -> Resu
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/banners", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -651,7 +651,7 @@ pub async fn get_buckets(configuration: &configuration::Configuration, id: &str)
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/registries/{id}/buckets", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -678,7 +678,7 @@ pub async fn get_bulletin_board(configuration: &configuration::Configuration, af
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/bulletin-board", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = after {
         local_var_req_builder = local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
@@ -723,7 +723,7 @@ pub async fn get_bulletins(configuration: &configuration::Configuration, ) -> Re
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/controller/bulletins", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -750,7 +750,7 @@ pub async fn get_cluster_summary(configuration: &configuration::Configuration, )
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/cluster/summary", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -778,7 +778,7 @@ pub async fn get_component_history(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/history/components/{componentId}", local_var_configuration.base_path, componentId=crate::apis::urlencode(component_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -805,7 +805,7 @@ pub async fn get_connection_statistics(configuration: &configuration::Configurat
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/connections/{id}/statistics", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = nodewise {
         local_var_req_builder = local_var_req_builder.query(&[("nodewise", &local_var_str.to_string())]);
@@ -838,7 +838,7 @@ pub async fn get_connection_status(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/connections/{id}/status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = nodewise {
         local_var_req_builder = local_var_req_builder.query(&[("nodewise", &local_var_str.to_string())]);
@@ -871,7 +871,7 @@ pub async fn get_connection_status_history(configuration: &configuration::Config
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/connections/{id}/status/history", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -899,7 +899,7 @@ pub async fn get_controller_service_types(configuration: &configuration::Configu
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/controller-service-types", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = service_type {
         local_var_req_builder = local_var_req_builder.query(&[("serviceType", &local_var_str.to_string())]);
@@ -948,7 +948,7 @@ pub async fn get_controller_services_from_controller(configuration: &configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/controller/controller-services", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = ui_only {
         local_var_req_builder = local_var_req_builder.query(&[("uiOnly", &local_var_str.to_string())]);
@@ -979,7 +979,7 @@ pub async fn get_controller_services_from_group(configuration: &configuration::C
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/process-groups/{id}/controller-services", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = include_ancestor_groups {
         local_var_req_builder = local_var_req_builder.query(&[("includeAncestorGroups", &local_var_str.to_string())]);
@@ -1015,7 +1015,7 @@ pub async fn get_controller_status(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/status", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1042,7 +1042,7 @@ pub async fn get_current_user(configuration: &configuration::Configuration, ) ->
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/current-user", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1070,7 +1070,7 @@ pub async fn get_flow(configuration: &configuration::Configuration, id: &str, ui
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = ui_only {
         local_var_req_builder = local_var_req_builder.query(&[("uiOnly", &local_var_str.to_string())]);
@@ -1100,7 +1100,7 @@ pub async fn get_flow_config(configuration: &configuration::Configuration, ) -> 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/config", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1127,7 +1127,7 @@ pub async fn get_flow_metrics(configuration: &configuration::Configuration, prod
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/metrics/{producer}", local_var_configuration.base_path, producer=crate::apis::urlencode(producer));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = included_registries {
         local_var_req_builder = match "multi" {
@@ -1169,7 +1169,7 @@ pub async fn get_flows(configuration: &configuration::Configuration, registry_id
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/registries/{registry_id}/buckets/{bucket_id}/flows", local_var_configuration.base_path, registry_id=crate::apis::urlencode(registry_id), bucket_id=crate::apis::urlencode(bucket_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1196,7 +1196,7 @@ pub async fn get_input_port_status(configuration: &configuration::Configuration,
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/input-ports/{id}/status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = nodewise {
         local_var_req_builder = local_var_req_builder.query(&[("nodewise", &local_var_str.to_string())]);
@@ -1229,7 +1229,7 @@ pub async fn get_output_port_status(configuration: &configuration::Configuration
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/output-ports/{id}/status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = nodewise {
         local_var_req_builder = local_var_req_builder.query(&[("nodewise", &local_var_str.to_string())]);
@@ -1262,7 +1262,7 @@ pub async fn get_parameter_contexts(configuration: &configuration::Configuration
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/parameter-contexts", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1290,7 +1290,7 @@ pub async fn get_prioritizers(configuration: &configuration::Configuration, ) ->
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/prioritizers", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1318,7 +1318,7 @@ pub async fn get_process_group_status(configuration: &configuration::Configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/process-groups/{id}/status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = recursive {
         local_var_req_builder = local_var_req_builder.query(&[("recursive", &local_var_str.to_string())]);
@@ -1354,7 +1354,7 @@ pub async fn get_process_group_status_history(configuration: &configuration::Con
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/process-groups/{id}/status/history", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1381,7 +1381,7 @@ pub async fn get_processor_status(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/processors/{id}/status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = nodewise {
         local_var_req_builder = local_var_req_builder.query(&[("nodewise", &local_var_str.to_string())]);
@@ -1414,7 +1414,7 @@ pub async fn get_processor_status_history(configuration: &configuration::Configu
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/processors/{id}/status/history", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1442,7 +1442,7 @@ pub async fn get_processor_types(configuration: &configuration::Configuration, b
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/processor-types", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = bundle_group_filter {
         local_var_req_builder = local_var_req_builder.query(&[("bundleGroupFilter", &local_var_str.to_string())]);
@@ -1478,7 +1478,7 @@ pub async fn get_registries(configuration: &configuration::Configuration, ) -> R
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/registries", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1505,7 +1505,7 @@ pub async fn get_remote_process_group_status(configuration: &configuration::Conf
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/remote-process-groups/{id}/status", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = nodewise {
         local_var_req_builder = local_var_req_builder.query(&[("nodewise", &local_var_str.to_string())]);
@@ -1538,7 +1538,7 @@ pub async fn get_remote_process_group_status_history(configuration: &configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/remote-process-groups/{id}/status/history", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1566,7 +1566,7 @@ pub async fn get_reporting_task_types(configuration: &configuration::Configurati
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/reporting-task-types", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = bundle_group_filter {
         local_var_req_builder = local_var_req_builder.query(&[("bundleGroupFilter", &local_var_str.to_string())]);
@@ -1602,7 +1602,7 @@ pub async fn get_reporting_tasks(configuration: &configuration::Configuration, )
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/reporting-tasks", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1630,7 +1630,7 @@ pub async fn get_runtime_manifest(configuration: &configuration::Configuration, 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/runtime-manifest", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1657,7 +1657,7 @@ pub async fn get_templates(configuration: &configuration::Configuration, ) -> Re
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/templates", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1684,7 +1684,7 @@ pub async fn get_versions(configuration: &configuration::Configuration, registry
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/registries/{registry_id}/buckets/{bucket_id}/flows/{flow_id}/versions", local_var_configuration.base_path, registry_id=crate::apis::urlencode(registry_id), bucket_id=crate::apis::urlencode(bucket_id), flow_id=crate::apis::urlencode(flow_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1712,7 +1712,7 @@ pub async fn query_history(configuration: &configuration::Configuration, offset:
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/history", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("offset", &offset.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("count", &count.to_string())]);
@@ -1759,7 +1759,7 @@ pub async fn schedule_components(configuration: &configuration::Configuration, i
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/process-groups/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1788,7 +1788,7 @@ pub async fn search_cluster(configuration: &configuration::Configuration, q: &st
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/cluster/search-results", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("q", &q.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -1817,7 +1817,7 @@ pub async fn search_flow(configuration: &configuration::Configuration, q: Option
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/flow/search-results", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_configuration.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
@@ -1828,6 +1828,14 @@ pub async fn search_flow(configuration: &configuration::Configuration, q: Option
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+
+    /*
+    if let Some(token) = &local_var_configuration.bearer_access_token {
+        println!("adding token");
+        local_var_req_builder = local_var_req_builder.bearer_auth(token);
+    }
+
+     */
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
