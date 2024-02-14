@@ -1,5 +1,5 @@
-[!IMPORTANT]
-This repository has been archived, the tool never reached a usable state and priorities shifted.
+> [!IMPORTANT]
+> This repository has been archived, the tool never reached a usable state and priorities shifted.
 
 # Rust API client for openapi
 
