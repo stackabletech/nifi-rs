@@ -1,3 +1,6 @@
+[!IMPORTANT]
+This repository has been archived, the tool never reached a usable state and priorities shifted.
+
 # Rust API client for openapi
 
 The Rest API provides programmatic access to command and control a NiFi instance in real time. Start and
